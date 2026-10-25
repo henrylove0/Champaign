@@ -2,7 +2,7 @@
 
 Champaign is a separate application and repository. Keep the portfolio and booking workspace independently deployable.
 
-Verified prototype: **https://champaign-six.vercel.app/**. Repository: https://github.com/henrylove0/Champaign . It is public demo software with fictional commercial terms, not a live booking service.
+Verified private preview: **https://naya-campaign.vercel.app/**. Repository: https://github.com/henrylove0/Champaign . The source is open; the hosted preview uses a shared server-side password gate. Commercial terms are fictional demonstration data, not live bookings.
 
 ## Recommended first connection
 
@@ -13,7 +13,7 @@ Verified prototype: **https://champaign-six.vercel.app/**. Repository: https://g
 
 The exact prototype link target can be the verified URL above and should be clearly labeled as a demo. This task does not mutate the portfolio's CMS manifest, authentication, R2 storage, deployment project, or DNS.
 
-The user clarified that `campaign.livewebsite.com` was a placeholder for a Naya-branded Vercel temporary address. Do not change `livewebsite.com` DNS. A separate flat Vercel alias can point at Champaign while the portfolio remains independently deployed.
+The user clarified that `campaign.livewebsite.com` was a placeholder for a Naya-branded Vercel temporary address. Do not change `livewebsite.com` DNS. `naya-campaign.vercel.app` is registered as a production domain on the Champaign project so visitors reach the shared preview gate without needing a Vercel account. Naya's portfolio remains independently deployed. Keep Vercel Authentication on non-production and immutable deployment URLs.
 
 ## Embedding later
 

@@ -4,7 +4,7 @@
 
 An independent, open-source campaign coordination prototype for Naya Lima. Built with React, TypeScript, and Vite, using the ivory, ink, geometric typography, and quiet editorial spacing of Naya's portfolio.
 
-[Open the live prototype](https://champaign-six.vercel.app/) · [Visibility policy](src/permissions.ts) · [Website integration](docs/INTEGRATION.md)
+[Open Naya's private preview](https://naya-campaign.vercel.app/) · [Visibility policy](src/permissions.ts) · [Website integration](docs/INTEGRATION.md)
 
 ![Champaign campaign workspace](docs/preview.jpg)
 
@@ -18,6 +18,8 @@ npm run dev
 Open the printed localhost URL (default `http://127.0.0.1:4327`). Node 22.20+ is recommended. `npm run build` produces a static `dist/` directory. Local Vite development runs the frontend directly. The hosted Vercel preview additionally uses the server-side password gate below.
 
 ## Private hosted preview
+
+The shared password is provided separately by the workspace owner.
 
 Vercel's root `middleware.ts` checks the shared preview session before serving HTML, JavaScript, CSS, or other assets. The login supports English and Portuguese. A successful password check issues a signed, host-only, HttpOnly, Secure cookie for seven days; **Lock preview** clears it. Incorrect credentials, expired/tampered cookies, cross-origin form submissions, and missing server configuration are rejected. Responses are private and uncached.
 
@@ -76,7 +78,7 @@ See [docs/INTEGRATION.md](docs/INTEGRATION.md). This repository remains independ
 
 The next production work is multi-user identity and tenant isolation, versioned server records and concurrency controls, real document review and signing, payments through a suitable provider, and moderation/safety processes. Exact milestone terms must vary by role; the common 50/50 split here is a demonstration. Real acceptance deadlines and dispute resolution must prevent indefinite client withholding.
 
-There are no paid builds or scheduled deployment workflows. Consult [docs/HANDOFF.md](docs/HANDOFF.md) for the current verification and deployment state.
+No recurring or scheduled deployment workflows are configured. Existing Vercel plan usage applies; no additional paid service was configured. Consult [docs/HANDOFF.md](docs/HANDOFF.md) for the current verification and deployment state.
 
 ## License
 
