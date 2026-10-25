@@ -10,7 +10,9 @@ const privateHeaders = {
   "Vercel-CDN-Cache-Control": "no-store",
   "X-Robots-Tag": "noindex, nofollow, noarchive",
   "X-Content-Type-Options": "nosniff",
-  "Referrer-Policy": "no-referrer",
+  // Native form POSTs may send Origin: null under no-referrer. Keep referrers
+  // on this host so the strict same-origin login/logout checks work in browsers.
+  "Referrer-Policy": "same-origin",
   "X-Frame-Options": "DENY",
 };
 export const previewResponseHeaders = () => ({ ...privateHeaders });

@@ -43,6 +43,7 @@ test("anonymous visitors get the private preview form without application HTML",
   assert.match(html, /name="password"/);
   assert.doesNotMatch(html, /\/assets\/|Maré Studio|R\$|fixture-only-password/);
   assert.match(r.headers.get("cache-control")!, /no-store/);
+  assert.equal(r.headers.get('referrer-policy'), 'same-origin');
   assert.match(r.headers.get("content-security-policy")!, /form-action 'self'/);
 });
 test("JavaScript, CSS, maps, and exported data are blocked without a valid cookie", async () => {
