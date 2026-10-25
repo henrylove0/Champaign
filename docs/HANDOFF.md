@@ -21,7 +21,12 @@ User steering: rates and some campaign information must have role-based visibili
 - Real IAB flow: Bia approval → client funding → each crew check-in → coordinator wrap → all handovers → client acceptance → six payouts. Simulated service payouts R$10,000; remaining R$0. Private role views checked on People and Payments.
 - Mobile 390px: document width/scroll width both 390; no horizontal page overflow. Hidden navigation removed from the accessibility tree until opened.
 - Jev desktop overview: PASS, 0 actions, 1299 ms; mobile 390px PT toggle: PASS, 1 action, 1530 ms. Both final URLs `http://127.0.0.1:4327/`; visible UI independently confirmed in IAB.
-- Separate public repository created: https://github.com/henrylove0/Champaign . Source push and hosted preview pending.
+- Public MIT repository: https://github.com/henrylove0/Champaign . Application source pushed as `a81815268ae89250ad86bf3549cf2e59e9ecac25`; later documentation/screenshot commits do not change the deployed application.
+- Clean `npm ci` using the public registry succeeded; all 53 lockfile tarball URLs point to `registry.npmjs.org`. Explicit Node 22.20.0 type-check, all 21 tests, and build passed as well as the default Node 24 run. No paid jobs or schedules were configured.
+- Hosted prototype: **https://champaign-six.vercel.app/**, Vercel project `champaign`, ID `prj_acSv7MC0aj6f44bYCeUh9EHyYw7T`, team `team_RYdFNFuKwJdwa2mCSvq3WNju`. Deployment `dpl_B4uMiNJs2VX6br86XwAy49jFi7T8`, immutable URL `https://champaign-lp6jd334c-exes-projects-58235064.vercel.app`, READY. No Git deployment trigger was connected.
+- Anonymous HTTPS returned 200; hosted JS `index-DVDgISd7.js` (221193 bytes) and CSS `index-PLlSGWjL.css` (38037 bytes) are byte-for-byte identical to the tested local build. No service worker is used. Noindex is present.
+- Published UI confirmed in IAB in English/Portuguese. The Portuguese visibility matrix opens correctly. Mobile 390px and desktop 1280px document widths equal their scroll widths. Screenshot `docs/preview.jpg` shows the published desktop interface; local QA shots in ignored `artifacts/`.
+- Installed Vercel CLI 44.7.3 was rejected by hosting. Suggested minimum 47.2.2 was unavailable in the configured registry. Queried official npm releases and used isolated `vercel@65.2.0` successfully; global tools were unchanged.
 
 ## Production limits
 
@@ -29,4 +34,4 @@ Browser-only state; no real accounts, invitations, shared records, authenticated
 
 ## Next
 
-Finish source publication and hosted preview; record verified URL and revision. Integration guidance in `docs/INTEGRATION.md`; proposed `book.nayaralima.com` is not configured. Local preview uses port 4327.
+Prototype complete. Next production phase: authenticated multi-user backend and server-enforced visibility before real client data, plus reviewed signing/payment integrations. Integration guidance in `docs/INTEGRATION.md`; proposed `book.nayaralima.com` is not configured. Local preview uses port 4327 when started; the hosted app is the deliverable.

@@ -2,6 +2,8 @@
 
 Champaign is a separate application and repository. Keep the portfolio and booking workspace independently deployable.
 
+Verified prototype: **https://champaign-six.vercel.app/**. Repository: https://github.com/henrylove0/Champaign . It is public demo software with fictional commercial terms, not a live booking service.
+
 ## Recommended first connection
 
 1. Build this repository with `npm ci && npm run build`.
@@ -9,7 +11,7 @@ Champaign is a separate application and repository. Keep the portfolio and booki
 3. After verifying the deployment, connect `book.nayaralima.com` to that project if the domain owner chooses it. This is a proposed hostname, not a configured one.
 4. Add a **Plan a campaign / Planejar campanha** link from Naya's portfolio to the verified booking URL. No iframe is required. Hash navigation keeps this prototype portable across static hosts and subdirectories.
 
-The exact portfolio link target must be the verified deployment URL. This task does not mutate the portfolio's CMS manifest, authentication, R2 storage, deployment project, or DNS.
+The exact prototype link target can be the verified URL above and should be clearly labeled as a demo. This task does not mutate the portfolio's CMS manifest, authentication, R2 storage, deployment project, or DNS.
 
 ## Embedding later
 

@@ -4,6 +4,10 @@
 
 An independent, open-source campaign coordination prototype for Naya Lima. Built with React, TypeScript, and Vite, using the ivory, ink, geometric typography, and quiet editorial spacing of Naya's portfolio.
 
+[Open the live prototype](https://champaign-six.vercel.app/) · [Visibility policy](src/permissions.ts) · [Website integration](docs/INTEGRATION.md)
+
+![Champaign campaign workspace](docs/preview.jpg)
+
 ## Try it
 
 ```sh
