@@ -957,6 +957,34 @@ h1 {
   background: transparent;
   color: #8b937e;
 }
+.preview-footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.preview-footer-actions button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 9px;
+  background: transparent;
+  color: #6f7d5e;
+  padding: 5px 0;
+}
+@media (max-width: 460px) {
+  .preview-footer-actions {
+    gap: 7px;
+  }
+  .preview-footer-actions button {
+    font-size: 8px;
+    gap: 3px;
+  }
+  .page-footer > p {
+    display: none;
+  }
+}
 .intro-row {
   display: flex;
   align-items: center;

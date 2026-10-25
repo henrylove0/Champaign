@@ -15,7 +15,15 @@ npm ci
 npm run dev
 ```
 
-Open the printed localhost URL (default `http://127.0.0.1:4327`). Node 22.20+ is recommended. `npm run build` produces a static `dist/` directory. No environment variables, paid service, backend, or API keys are required.
+Open the printed localhost URL (default `http://127.0.0.1:4327`). Node 22.20+ is recommended. `npm run build` produces a static `dist/` directory. Local Vite development runs the frontend directly. The hosted Vercel preview additionally uses the server-side password gate below.
+
+## Private hosted preview
+
+Vercel's root `middleware.ts` checks the shared preview session before serving HTML, JavaScript, CSS, or other assets. The login supports English and Portuguese. A successful password check issues a signed, host-only, HttpOnly, Secure cookie for seven days; **Lock preview** clears it. Incorrect credentials, expired/tampered cookies, cross-origin form submissions, and missing server configuration are rejected. Responses are private and uncached.
+
+Configure `PREVIEW_PASSWORD_HASH` and `PREVIEW_SESSION_SECRET` as sensitive, server-only Vercel variables for production and preview. No `VITE_` variable contains a credential. After linking this checkout to the Champaign project, pipe the chosen password on stdin to `node scripts/configure-preview-env.mjs`; the helper generates the scrypt hash and a random signing key without writing credentials to disk or logging values. Existing variables are not silently overwritten. Redeploy after configuration or rotation.
+
+The gate controls shared preview entry. It does not authenticate individual campaign participants or replace the future role-authorized backend. The source and fictional sample data remain open source.
 
 ## What works
 
@@ -58,7 +66,7 @@ npm test
 npm run build
 ```
 
-Twenty-one domain tests cover approval invalidation, role restrictions, schedule revisions, funding and attendance prerequisites, duplicate releases, delivery/client approval, exact payout accounting, unpaid/external arrangements, private document access, payout activity, and export redaction. These validate the prototype policy, not real multi-user isolation.
+Thirty-two tests cover the preview gate plus approval invalidation, role restrictions, schedule revisions, funding and attendance prerequisites, duplicate releases, delivery/client approval, exact payout accounting, unpaid/external arrangements, private document access, payout activity, and export redaction. They validate the preview boundary and prototype policy, not real multi-user campaign isolation.
 
 ## Connecting to Naya's website
 

@@ -7,11 +7,13 @@ Verified prototype: **https://champaign-six.vercel.app/**. Repository: https://g
 ## Recommended first connection
 
 1. Build this repository with `npm ci && npm run build`.
-2. Host `dist/` as a static app on its own free hosting project. No functions, database, or secrets are needed for this prototype.
+2. Deploy this repository to its own Vercel project, including root `middleware.ts` and `server/preview-gate.ts`. Configure the server-only preview password hash and signing key before deployment. Deploying only `dist/` omits the password gate and must not be used for the private preview. No campaign database is needed for this demonstration.
 3. After verifying the deployment, connect `book.nayaralima.com` to that project if the domain owner chooses it. This is a proposed hostname, not a configured one.
 4. Add a **Plan a campaign / Planejar campanha** link from Naya's portfolio to the verified booking URL. No iframe is required. Hash navigation keeps this prototype portable across static hosts and subdirectories.
 
 The exact prototype link target can be the verified URL above and should be clearly labeled as a demo. This task does not mutate the portfolio's CMS manifest, authentication, R2 storage, deployment project, or DNS.
+
+The user clarified that `campaign.livewebsite.com` was a placeholder for a Naya-branded Vercel temporary address. Do not change `livewebsite.com` DNS. A separate flat Vercel alias can point at Champaign while the portfolio remains independently deployed.
 
 ## Embedding later
 

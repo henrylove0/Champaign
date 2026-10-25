@@ -1993,10 +1993,18 @@ export default function App() {
                   "Coisas boas acontecem quando todos estão alinhados.",
                 )}
               </p>
-              <button onClick={() => setModal({ type: "reset" })}>
-                <Icon name="reset" size={13} />
-                {t("Reset demo", "Reiniciar demo")}
-              </button>
+              <div className="preview-footer-actions">
+                <button onClick={() => setModal({ type: "reset" })}>
+                  <Icon name="reset" size={13} />
+                  {t("Reset demo", "Reiniciar demo")}
+                </button>
+                <form method="post" action="/__preview/logout">
+                  <button type="submit">
+                    <Icon name="lock" size={13} />
+                    {t("Lock preview", "Bloquear prévia")}
+                  </button>
+                </form>
+              </div>
             </footer>
           </main>
         </div>

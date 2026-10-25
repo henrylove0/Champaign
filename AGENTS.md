@@ -10,4 +10,6 @@ Independent, open-source campaign coordination prototype for Naya Lima. The pare
 - Material scope changes must invalidate earlier approvals. Never release simulated funds without the current agreement and milestone evidence.
 - Future multi-user work requires server-side authentication, authorization, tenant isolation, immutable agreement versions, concurrency protection, and a regulated payment provider. A payment redirect or QR code alone is not escrow or evidence of completed work.
 - No paid infrastructure, production DNS changes, signing services, or payment integrations are authorized by the prototype brief.
+- User instruction (2026-10-26): deploy the interactive preview to Vercel with a shared password gate. Clarified that the desired address is a Naya-branded temporary Vercel address; `livewebsite.com` was a placeholder. Do not change that domain's DNS. This does not authorize paid services or real payment/signing integrations.
+- Preview access must be checked on the server before HTML and assets are served, using server-only environment configuration and signed HttpOnly cookies. Fail closed if configuration is missing. The preview password is not a substitute for per-user authorization.
 - Keep `docs/HANDOFF.md` current. Source is MIT licensed; private talent assets and third-party photographs are excluded unless separately licensed.

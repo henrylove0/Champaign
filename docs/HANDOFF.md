@@ -35,3 +35,13 @@ Browser-only state; no real accounts, invitations, shared records, authenticated
 ## Next
 
 Prototype complete. Next production phase: authenticated multi-user backend and server-enforced visibility before real client data, plus reviewed signing/payment integrations. Integration guidance in `docs/INTEGRATION.md`; proposed `book.nayaralima.com` is not configured. Local preview uses port 4327 when started; the hosted app is the deliverable.
+
+## Private preview update (2026-10-26)
+
+User requested a shared-password Vercel preview and clarified the desired address is a Naya-branded temporary Vercel name. `livewebsite.com` was a placeholder; its DNS was inspected but not changed. `naya-campaign.vercel.app` is the candidate alias (unassigned at inspection).
+
+Added root Node routing middleware and `server/preview-gate.ts`. It checks all HTML/assets, uses a salted scrypt hash, host-bound signed seven-day HttpOnly/Secure cookies, same-origin POST forms, private/no-store responses, and a bilingual server-rendered login. Missing configuration fails closed. **Lock preview** clears the session while preserving browser-local campaign data. This remains shared preview entry, not authenticated participant authorization.
+
+Sensitive `PREVIEW_PASSWORD_HASH` and `PREVIEW_SESSION_SECRET` are configured on the exact Champaign project for production and preview. No values were printed, put in client code, or written to credential files. Reusable stdin-only helper: `scripts/configure-preview-env.mjs`. Do not rerun against existing variables to rotate implicitly.
+
+Checks: type-check, 32 tests (21 campaign/visibility + 11 gate), build, helper syntax, whitespace checks passed. @vercel/functions is pinned to 3.6.1 and imported through its middleware subpath; 3.10.3 introduced a vulnerable unused OIDC dependency chain and was removed. Audit after the replacement reports zero vulnerabilities. Server environment names and crypto code are absent from client assets. Deployment and browser checks pending.
