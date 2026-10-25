@@ -2,7 +2,7 @@ import { next } from "@vercel/functions/middleware";
 import {
   handlePreviewRequest,
   previewResponseHeaders,
-} from "./server/preview-gate.ts";
+} from "./server/preview-gate.js";
 
 export const config = { matcher: "/:path*", runtime: "nodejs" };
 
